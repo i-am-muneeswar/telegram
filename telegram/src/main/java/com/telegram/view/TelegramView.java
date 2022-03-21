@@ -83,7 +83,7 @@ public class TelegramView {
 								
 							}
 							
-							System.out.println("Press y to continue");
+							System.out.println("Press y if you wanna see the operations again 😀😀");
 							s = sc.next();
 							
 						}
@@ -101,7 +101,7 @@ public class TelegramView {
 					
 			}
 			
-			System.out.println("Press y to continue");
+			System.out.println("Press y to show the Telegram Main Menu");
 			s = sc.next();
 			
 		}

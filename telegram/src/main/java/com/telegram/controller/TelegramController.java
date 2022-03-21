@@ -22,16 +22,16 @@ public class TelegramController implements TelegramControllerInterface {
 
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter name: ");
+		log.info("Enter name: ");
 		String name = sc.next();
 		
-		System.out.println("Enter Password: ");
+		log.info("Enter Password: ");
 		String password = sc.next();
 		
-		System.out.println("Enter Email: ");
+		log.info("Enter Email: ");
 		String email = sc.next();
 		
-		System.out.println("Enter Address: ");
+		log.info("Enter Address: ");
 		String address = sc.next();
 		
 		TelegramUser tu = new TelegramUser();
@@ -56,7 +56,7 @@ public class TelegramController implements TelegramControllerInterface {
 
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter email: ");
+		log.info("Enter email: ");
 		String email = sc.next();
 		
 		TelegramUser tu = new TelegramUser();
@@ -78,7 +78,7 @@ public class TelegramController implements TelegramControllerInterface {
 
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter email: ");
+		log.info("Enter email: ");
 		String email = sc.next();
 		
 		TelegramUser tu = new TelegramUser();
@@ -130,7 +130,7 @@ public class TelegramController implements TelegramControllerInterface {
 
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter name: ");
+		log.info("Enter name: ");
 		String name = sc.next();
 		
 		TelegramUser tu = new TelegramUser();
@@ -160,18 +160,19 @@ public class TelegramController implements TelegramControllerInterface {
 		System.out.println("Your Older Data");
 		viewProfileController();
 		
+		
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter new name: ");
+		log.info("Enter new name: ");
 		String name = sc.next();
 		
-		System.out.println("Enter new Password: ");
+		log.info("Enter new Password: ");
 		String password = sc.next();
 		
-		System.out.println("Enter old Email: ");
+		log.info("Enter old Email: ");
 		String email = sc.next();
 		
-		System.out.println("Enter new Address: ");
+		log.info("Enter new Address: ");
 		String address = sc.next();
 		
 		TelegramUser tu = new TelegramUser();
@@ -203,10 +204,10 @@ public class TelegramController implements TelegramControllerInterface {
 
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter email: ");
+		log.info("Enter email: ");
 		String email = sc.next();
 		
-		System.out.println("Enter Password: ");
+		log.info("Enter Password: ");
 		String password = sc.next();
 		
 		TelegramUser tu = new TelegramUser();
@@ -234,19 +235,19 @@ public class TelegramController implements TelegramControllerInterface {
 
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Enter Message ID: ");
+		log.info("Enter Message ID: ");
 		String messageid = sc.next();
 		
-		System.out.println("Enter Sender ID: ");
+		log.info("Enter Sender ID: ");
 		String sender = sc.next();
 		
-		System.out.println("Enter Reciever ID: ");
+		log.info("Enter Reciever ID: ");
 		String reciever = sc.next();
 		
-		System.out.println("Enter Message: ");
+		log.info("Enter Message: ");
 		String message = sc.next();
 		
-		System.out.println("Enter Date: ");
+		log.info("Enter Date: ");
 		String date = sc.next();
 		
 		TimelineDetails tld = new TimelineDetails();
