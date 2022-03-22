@@ -221,6 +221,66 @@ public class TelegramController implements TelegramControllerInterface {
 				System.out.println("********************");
 			
 			});
+			
+			String s = "y";
+			
+			while(s.equals("y")) {
+			
+				System.out.println("**********************************************");
+				System.out.println("Press 1 to Print in Sorted by Name");
+				System.out.println("Press 2 to Print in Sorted by Address");
+				System.out.println("**********************************************");
+				int ch = sc.nextInt();
+			
+				switch(ch) {
+			
+					case 1:
+					
+						Collections.sort(i, new SortByName());
+					
+						System.out.println("Sorted list by name is.................");
+					
+						i.forEach(snb->{
+						
+							System.out.println("**********************************************");
+							System.out.println("Name is "+snb.getName());
+							System.out.println("Password is "+snb.getPassword());
+							System.out.println("Email is "+snb.getEmail());
+							System.out.println("Address is "+snb.getAddress());
+							System.out.println("**********************************************");
+					
+						});
+					
+						break;
+				
+					case 2:
+					
+						Collections.sort(i, new SortByAddress());
+					
+						System.out.println("Sorted list by address is.................");
+					
+						i.forEach(sna->{
+						
+							System.out.println("**********************************************");
+							System.out.println("Name is "+sna.getName());
+							System.out.println("Password is "+sna.getPassword());
+							System.out.println("Email is "+sna.getEmail());
+							System.out.println("Address is "+sna.getAddress());
+							System.out.println("**********************************************");
+					
+						});
+					
+						break;
+					
+					default:
+						System.out.println("You can either press 1 or 2  😔😔");
+					
+				}
+				
+				System.out.println("Press y if you wanna see the sorting once again 😀😀");
+				s = sc.next();
+				
+			}
 		
 		return i;
 		
