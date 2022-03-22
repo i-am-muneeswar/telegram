@@ -7,6 +7,8 @@ import com.telegram.entity.TelegramUser;
 import com.telegram.entity.TimelineDetails;
 import com.telegram.service.TelegramServiceInterface;
 import com.telegram.utility.FactoryService;
+import com.telegram.utility.SortByAddress;
+import com.telegram.utility.SortByName;
 
 public class TelegramController implements TelegramControllerInterface {
 	
@@ -119,14 +121,75 @@ public class TelegramController implements TelegramControllerInterface {
 		
 			i.forEach(s->{
 			
-			System.out.println("********************");
-			System.out.println("Name is "+s.getName());
-			System.out.println("Password is "+s.getPassword());
-			System.out.println("Email is "+s.getEmail());
-			System.out.println("Address is "+s.getAddress());
-			System.out.println("********************");
+				System.out.println("**********************************************");
+				System.out.println("Name is "+s.getName());
+				System.out.println("Password is "+s.getPassword());
+				System.out.println("Email is "+s.getEmail());
+				System.out.println("Address is "+s.getAddress());
+				System.out.println("**********************************************");
 			
 			});
+			
+			String s = "y";
+			
+			while(s.equals("y")) {
+			
+				Scanner sc = new Scanner(System.in);
+				System.out.println("**********************************************");
+				System.out.println("Press 1 to Print in Sorted by Name");
+				System.out.println("Press 2 to Print in Sorted by Address");
+				System.out.println("**********************************************");
+				int ch = sc.nextInt();
+			
+				switch(ch) {
+			
+					case 1:
+					
+						Collections.sort(i, new SortByName());
+					
+						System.out.println("Sorted list by name is.................");
+					
+						i.forEach(snb->{
+						
+							System.out.println("**********************************************");
+							System.out.println("Name is "+snb.getName());
+							System.out.println("Password is "+snb.getPassword());
+							System.out.println("Email is "+snb.getEmail());
+							System.out.println("Address is "+snb.getAddress());
+							System.out.println("**********************************************");
+					
+						});
+					
+						break;
+				
+					case 2:
+					
+						Collections.sort(i, new SortByAddress());
+					
+						System.out.println("Sorted list by address is.................");
+					
+						i.forEach(sna->{
+						
+							System.out.println("**********************************************");
+							System.out.println("Name is "+sna.getName());
+							System.out.println("Password is "+sna.getPassword());
+							System.out.println("Email is "+sna.getEmail());
+							System.out.println("Address is "+sna.getAddress());
+							System.out.println("**********************************************");
+					
+						});
+					
+						break;
+					
+					default:
+						System.out.println("You can either press 1 or 2  😔😔");
+					
+				}
+				
+				System.out.println("Press y if you wanna see the sorting once again 😀😀");
+				s = sc.next();
+				
+			}
 		
 		return i;
 		
@@ -271,15 +334,18 @@ public class TelegramController implements TelegramControllerInterface {
 		log.info("Enter Message: ");
 		String message = sc.next();
 		
-		log.info("Enter Data: ");
-		String data = sc.next();
+		log.info("Enter Date: ");
+		String date = sc.next();
+		
+		TelegramUser tu = new TelegramUser();
+		tu.getEmail();
 		
 		TimelineDetails tld = new TimelineDetails();
 		tld.setMessageid(messageid);
 		tld.setSender(sender);
 		tld.setReciever(reciever);
 		tld.setMessage(message);
-		tld.setData(data);
+		tld.setDate(date);
 		
 		int i = ts.createTimelineService(tld);
 		

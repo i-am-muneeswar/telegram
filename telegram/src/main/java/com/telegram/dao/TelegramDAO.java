@@ -269,7 +269,7 @@ public class TelegramDAO implements TelegramDAOInterface {
 			ps.setString(1, tld.getMessageid());
 			ps.setString(2, tld.getSender());
 			ps.setString(3, tld.getMessage());
-			ps.setString(4, tld.getData());
+			ps.setString(4, tld.getDate());
 			ps.setString(5, tld.getReciever());
 			
 			i = ps.executeUpdate();

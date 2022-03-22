@@ -131,7 +131,7 @@ public class ServiceUnitTesting {
 		tld.setMessageid("ee");
 		tld.setSender("ee");
 		tld.setMessage("ee");
-		tld.setData("ee");
+		tld.setDate("ee");
 		tld.setReciever("ee");
 		
 		int i = ts.createTimelineService(tld);

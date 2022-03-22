@@ -125,12 +125,12 @@ public class DAOUnitTesting {
 
 	@Test
 	public void testCreateTimelineDAO() {
-
+		
 		TimelineDetails tld = new TimelineDetails();
-		tld.setMessageid("ff");
+		tld.setMessageid("dd");
 		tld.setSender("dd");
 		tld.setMessage("dd");
-		tld.setData("dd");
+		tld.setDate("dd");
 		tld.setReciever("dd");
 		
 		int i = td.createTimelineDAO(tld);

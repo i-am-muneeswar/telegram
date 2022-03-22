@@ -101,7 +101,7 @@ public class TelegramView {
 					
 			}
 			
-			System.out.println("Press y to show the Telegram Main Menu");
+			System.out.println("Press y to show the Telegram Main Menu 🙂🙂");
 			s = sc.next();
 			
 		}
