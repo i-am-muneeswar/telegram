@@ -17,7 +17,7 @@ This Project is like telegram and here we will implement 8 functionalities like
     - Timeline
 
 ## Project-Struture
-
+<img src="image.png" width = "400" height = "700">
 
 ## Software Requirements of the project
 1. Java 1.8
