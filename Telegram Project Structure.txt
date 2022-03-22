@@ -1,0 +1,30 @@
+Telegram
+
+	-> Controller Layer
+		-> TelegramController.java
+		-> TelegramControllerInterface.java
+	
+	-> DAO Layer
+		-> TelegramDAO.java
+		-> TelegramDAOInterface.java	
+	
+	-> Entity Layer
+		-> TelegramUser.java
+		-> TimelineDetails.java
+	
+	-> Exception Layer
+		-> CustomException.java
+	
+	-> Service Layer
+		-> TelegramService.java
+		-> TelegramServiceInterface.java
+
+	-> Utility Layer
+		-> FactoryController.java
+		-> FactoryDAO.java
+		-> FactoryService.java
+		-> SortByAddress.java
+		-> SortByName.java
+
+	-> View Layer
+		-> TelegramView.java
