@@ -1,7 +1,7 @@
 # Project Name - Telegram
 
 ## Abstract
-This Project is like Whatsapp and here we will implement 8 functionalities like
+This Project is like telegram and here we will implement 8 functionalities like
 1. Sign-UP
     - Create Profile
 2. Sign-IN
@@ -24,5 +24,5 @@ This Project is like Whatsapp and here we will implement 8 functionalities like
 2. Oracle
 3. Eclipse
 
-### To run this file go to the given path
+## To run this file go to the given path
 [Run Telegram View](telegram/telegram/src/main/java/com/telegram/view/TelegramView.java)
