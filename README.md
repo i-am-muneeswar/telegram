@@ -25,4 +25,4 @@ This Project is like Whatsapp and here we will implement 8 functionalities like
 3. Eclipse
 
 ### To run this file go to the given path
-[Run Telegram View] (telegram/telegram/src/main/java/com/telegram/view/TelegramView.java)
+[Run Telegram View](telegram/telegram/src/main/java/com/telegram/view/TelegramView.java)
