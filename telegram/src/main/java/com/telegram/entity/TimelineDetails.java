@@ -6,7 +6,7 @@ public class TimelineDetails {
 	private String sender;
 	private String reciever;
 	private String message;
-	private String date;
+	private String data;
 	
 	public String getMessageid() {
 		return messageid;
@@ -32,11 +32,11 @@ public class TimelineDetails {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public String getDate() {
-		return date;
+	public String getData() {
+		return data;
 	}
-	public void setDate(String date) {
-		this.date = date;
+	public void setData(String data) {
+		this.data = data;
 	}
 
 }

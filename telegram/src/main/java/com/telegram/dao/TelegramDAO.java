@@ -6,6 +6,7 @@ import java.util.List;
 
 import com.telegram.entity.TelegramUser;
 import com.telegram.entity.TimelineDetails;
+import com.telegram.exception.CustomException;
 
 public class TelegramDAO implements TelegramDAOInterface {
 	
@@ -18,10 +19,13 @@ public class TelegramDAO implements TelegramDAOInterface {
 			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE","system","oracle");
 		}
 		
-		catch (Exception e) {
+		catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		}
 		
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -31,6 +35,12 @@ public class TelegramDAO implements TelegramDAOInterface {
 		
 		try {
 			
+			if(tu.getName().equals("telegram")) {
+				
+				throw new CustomException();
+				
+			}
+			
 			PreparedStatement ps = con.prepareStatement("insert into TelegramUser values(?,?,?,?)");
 			ps.setString(1, tu.getName());
 			ps.setString(2, tu.getPassword());
@@ -38,10 +48,14 @@ public class TelegramDAO implements TelegramDAOInterface {
 			ps.setString(4, tu.getAddress());
 			
 			i = ps.executeUpdate();
-			System.out.println(i);
+			
 		}
 		
-		catch(Exception e) {
+		catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		catch(CustomException e) {
 			e.printStackTrace();
 		}
 		
@@ -255,7 +269,7 @@ public class TelegramDAO implements TelegramDAOInterface {
 			ps.setString(1, tld.getMessageid());
 			ps.setString(2, tld.getSender());
 			ps.setString(3, tld.getMessage());
-			ps.setString(4, tld.getDate());
+			ps.setString(4, tld.getData());
 			ps.setString(5, tld.getReciever());
 			
 			i = ps.executeUpdate();

@@ -63,7 +63,7 @@ public class TelegramView {
 									break;
 								
 								case 3:
-									tc.viewAllProfiles();
+									tc.viewAllProfilesController();
 									break;
 								
 								case 4:
@@ -75,7 +75,7 @@ public class TelegramView {
 									break;
 								
 								case 6:
-									tc.createTimeline();
+									tc.createTimelineController();
 									break;
 									
 								default:

@@ -49,10 +49,11 @@ public class TelegramController implements TelegramControllerInterface {
 		else {
 			System.out.println("Sorry..... cannot create profile");
 		}
+		
 		return i;
 	}
 
-	public void deleteProfileController() {
+	public int deleteProfileController() {
 
 		Scanner sc = new Scanner(System.in);
 		
@@ -72,10 +73,12 @@ public class TelegramController implements TelegramControllerInterface {
 			System.out.println("Profile is not deleted");
 		}
 		
+		return i;
+		
 	}
 
-	public void viewProfileController() {
-
+	public TelegramUser viewProfileController() {
+		
 		Scanner sc = new Scanner(System.in);
 		
 		log.info("Enter email: ");
@@ -95,15 +98,18 @@ public class TelegramController implements TelegramControllerInterface {
 			System.out.println("Address is "+i.getAddress());
 			System.out.println("********************");
 			
+			
 		}
 		
 		else {
 			System.out.println("Cannot view Profile");
 		}
 		
+		return i;
+		
 	}
 
-	public void viewAllProfiles() {
+	public List<TelegramUser> viewAllProfilesController() {
 
 		List<TelegramUser> i = ts.viewAllProfilesService();
 		
@@ -111,7 +117,7 @@ public class TelegramController implements TelegramControllerInterface {
 		System.out.println(i.size()+" records found in the database");
 		System.out.println("**********************************************");
 		
-		i.forEach(s->{
+			i.forEach(s->{
 			
 			System.out.println("********************");
 			System.out.println("Name is "+s.getName());
@@ -120,13 +126,13 @@ public class TelegramController implements TelegramControllerInterface {
 			System.out.println("Address is "+s.getAddress());
 			System.out.println("********************");
 			
-		});
+			});
 		
-		
+		return i;
 		
 	}
 
-	public void searchProfileController() {
+	public List<TelegramUser> searchProfileController() {
 
 		Scanner sc = new Scanner(System.in);
 		
@@ -142,61 +148,78 @@ public class TelegramController implements TelegramControllerInterface {
 		System.out.println(i.size()+" records found in the database");
 		System.out.println("**********************************************");
 		
-		i.forEach(s->{
+			i.forEach(s->{
 			
-			System.out.println("********************");
-			System.out.println("Name is "+s.getName());
-			System.out.println("Password is "+s.getPassword());
-			System.out.println("Email is "+s.getEmail());
-			System.out.println("Address is "+s.getAddress());
-			System.out.println("********************");
+				System.out.println("********************");
+				System.out.println("Name is "+s.getName());
+				System.out.println("Password is "+s.getPassword());
+				System.out.println("Email is "+s.getEmail());
+				System.out.println("Address is "+s.getAddress());
+				System.out.println("********************");
 			
-		});
+			});
+		
+		return i;
 		
 	}
 
-	public void editProfileController() {
+	public int editProfileController() {
+		
+		int j = 0;
 		
 		System.out.println("Your Older Data");
-		viewProfileController();
+		TelegramUser vpc = viewProfileController();
 		
+		if(vpc!=null) {
+			
+			j=1;
 		
-		Scanner sc = new Scanner(System.in);
+			Scanner sc = new Scanner(System.in);
 		
-		log.info("Enter new name: ");
-		String name = sc.next();
+			log.info("Enter new name: ");
+			String name = sc.next();
 		
-		log.info("Enter new Password: ");
-		String password = sc.next();
+			log.info("Enter new Password: ");
+			String password = sc.next();
 		
-		log.info("Enter old Email: ");
-		String email = sc.next();
+			log.info("Enter old Email: ");
+			String email = sc.next();
 		
-		log.info("Enter new Address: ");
-		String address = sc.next();
+			log.info("Enter new Address: ");
+			String address = sc.next();
 		
-		TelegramUser tu = new TelegramUser();
-		tu.setName(name);
-		tu.setPassword(password);
-		tu.setEmail(email);
-		tu.setAddress(address);
+			TelegramUser tu = new TelegramUser();
+			tu.setName(name);
+			tu.setPassword(password);
+			tu.setEmail(email);
+			tu.setAddress(address);
 		
-		int i = ts.editProfileService(tu);
+			int i = ts.editProfileService(tu);
 		
-		System.out.println("Updated data is.......");
+			System.out.println("Updated data is.......");
 		
-		if(i>0) {
-			System.out.println("********************");
-			System.out.println("Name is "+name);
-			System.out.println("Password is "+password);
-			System.out.println("Email is "+email);
-			System.out.println("Address is "+address);
-			System.out.println("********************");
+			if(i>0) {
+			
+				System.out.println("********************");
+				System.out.println("Name is "+name);
+				System.out.println("Password is "+password);
+				System.out.println("Email is "+email);
+				System.out.println("Address is "+address);
+				System.out.println("********************");
+			
+			}
+		
+			else {
+				System.out.println("Sorry.... your profile is not updated");
+			}
+		
 		}
 		
 		else {
-			System.out.println("Sorry.... your profile is not updated");
+			System.out.println("User does not exist");
 		}
+		
+		return j;
 		
 	}
 
@@ -227,11 +250,12 @@ public class TelegramController implements TelegramControllerInterface {
 		else {
 			System.out.println("Unable to Signin..... try again 🥲🥲");
 		}
+		
 		return i;
 		
 	}
 
-	public void createTimeline() {
+	public int createTimelineController() {
 
 		Scanner sc = new Scanner(System.in);
 		
@@ -247,15 +271,15 @@ public class TelegramController implements TelegramControllerInterface {
 		log.info("Enter Message: ");
 		String message = sc.next();
 		
-		log.info("Enter Date: ");
-		String date = sc.next();
+		log.info("Enter Data: ");
+		String data = sc.next();
 		
 		TimelineDetails tld = new TimelineDetails();
 		tld.setMessageid(messageid);
 		tld.setSender(sender);
 		tld.setReciever(reciever);
 		tld.setMessage(message);
-		tld.setDate(date);
+		tld.setData(data);
 		
 		int i = ts.createTimelineService(tld);
 		
@@ -266,6 +290,7 @@ public class TelegramController implements TelegramControllerInterface {
 		else {
 			System.out.println("Sorry, unable to create timeline");
 		}
+		return i;
 		
 	}
 

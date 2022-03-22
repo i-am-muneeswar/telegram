@@ -1,23 +1,25 @@
 package com.telegram.controller;
 
+import java.util.List;
+
 import com.telegram.entity.TelegramUser;
 
 public interface TelegramControllerInterface {
 
 	int createProfileController();
 
-	void deleteProfileController();
+	int deleteProfileController();
 
-	void viewProfileController();
+	TelegramUser viewProfileController();
 
-	void viewAllProfiles();
+	List<TelegramUser> searchProfileController();
 
-	void searchProfileController();
-
-	void editProfileController();
+	int editProfileController();
 
 	TelegramUser signINController();
 
-	void createTimeline();
+	List<TelegramUser> viewAllProfilesController();
+
+	int createTimelineController();
 
 }
